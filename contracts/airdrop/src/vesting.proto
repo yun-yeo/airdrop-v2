@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package cosmos.vesting.v1beta1;
+
+// Coin defines a token with a denomination and an amount.
+//
+// NOTE: The amount field is an Int which implements the custom method
+// signatures required by gogoproto.
+message Coin {
+    string denom  = 1;
+    string amount = 2;
+  }
+
+  
+// Period defines a length of time and amount of coins that will vest.
+message Period {
+    int64    length                          = 1;
+    repeated Coin amount = 2;
+  }
+
+// MsgCreateVestingAccount defines a message that enables creating a vesting
+// account.
+message MsgCreatePeriodicVestingAccount {
+    string   from_address                    = 1;
+    string   to_address                      = 2;
+    int64    start_time                      = 3;
+    repeated Period vesting_periods = 4;
+}

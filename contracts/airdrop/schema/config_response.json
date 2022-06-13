@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ConfigResponse",
+  "type": "object",
+  "required": [
+    "admin",
+    "denom"
+  ],
+  "properties": {
+    "admin": {
+      "type": "string"
+    },
+    "denom": {
+      "type": "string"
+    }
+  }
+}
